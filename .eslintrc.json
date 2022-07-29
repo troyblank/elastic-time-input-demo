@@ -1,0 +1,49 @@
+{
+	"env": {
+		"browser": true,
+		"node": true,
+		"es6": true,
+		"jest": true
+	},
+
+	"globals": {
+		"jsdom": true,
+		"google": true
+	},
+
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:jsx-a11y/recommended",
+		"plugin:import/recommended",
+		"plugin:import/typescript"
+	],
+
+	"parserOptions": {
+		"ecmaVersion": 2019,
+		"sourceType": "module",
+		"project": ["./tsconfig.json", "./tsconfig.eslint.json"]
+	},
+
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+
+	"rules": {
+		"@typescript-eslint/no-unnecessary-condition": "off",
+		"@typescript-eslint/unbound-method": "off",
+		"no-use-before-define": "off",
+		"react/prop-types": "off",
+		"require-await": "off",
+		"react-hooks/exhaustive-deps": "off",
+		"react/jsx-curly-brace-presence": [2, {"props": "always", "children": "always"}],
+		"space-in-parens": ["error", "always", { "exceptions": ["empty"] }],
+		"jsx-quotes": ["error", "prefer-single"],
+		"import/order": ["error", {"groups": ["builtin", "external", "parent", "sibling", "index"]}],
+		"react/display-name": "off",
+		"react/require-default-props": "off"
+	}
+}

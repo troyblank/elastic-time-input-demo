@@ -5,6 +5,7 @@ import { TimeInputDemo } from './components'
 import { GlobalStyles } from './styles/global.styles'
 
 const TIME_ZONE_OF_EMPLOYEE: string = 'Pacific/Auckland'
+moment.tz.setDefault(TIME_ZONE_OF_EMPLOYEE);
 
 const App = () => {
     const [ dateSelected, setDateSelected ] = useState<Moment>(moment.tz( new Date('2022-04-02T20:45:00.000Z'), TIME_ZONE_OF_EMPLOYEE ))
@@ -19,9 +20,9 @@ const App = () => {
             <br />
             <p>This is the output of that time.</p>
             <pre>{dateSelected.format('MMMM Do YYYY, h:mm:ss a')}</pre>
-            <p>This is the output of that same times time zone abbreviation (notice if/when elastic looses it).</p>
+            <p>This is the output of that same times time zone abbreviation.</p>
             <pre>{dateSelected.zoneAbbr().length ? dateSelected.zoneAbbr() : '(undefined timezone)'}</pre>
-            <p>If you use the pre-set time intervals your time stays within the timezone of 'Pacific/Auckland', but if you type into the input the timezone gets stripped and EuiDatePicker's time becomes way off from the day of origin.</p>
+            <p>If you use the pre-set time intervals your output time is as expected, but if you type into the input the day becomes way off from the day of origin.</p>
             <p>Source can be found here ➡️ <a href={'https://github.com/troyblank/elastic-time-input-demo'}>https://github.com/troyblank/elastic-time-input-demo</a></p>
         </EuiProvider>
 	)
